@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Plot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Create Plot{% endblock %}
+
+    {% block content %}
+    <h1>Create a Plot</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="x_column" class="form-label">X Column:</label>
+            <select name="x_column" class="form-select">
+                {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="y_column" class="form-label">Y Column:</label>
+            <select name="y_column" class="form-select">
+                {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="chart_type" class="form-label">Chart Type:</label>
+            <select name="chart_type" class="form-select">
+                <option value="line">Line Chart</option>
+                <option value="bar">Bar Chart</option>
+                <option value="pie">Pie Chart</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Plot</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرسم البياني</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Plot{% endblock %}
+
+    {% block content %}
+    <h1>Generated Plot</h1>
+    <div>
+        {{ graph_html|safe }}
+    </div>
+    {% endblock %}
+</body>
+</html>

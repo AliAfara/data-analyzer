@@ -51,6 +51,19 @@ body {
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
+/* Custom button for logout and profile */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: scale(1.05);
+}
+
 /* Footer styles */
 footer {
     background-color: #007bff;
@@ -76,11 +89,17 @@ footer a:hover {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Arial', sans-serif;
     color: #333;
+    font-weight: bold;
 }
 
 p {
     color: #555;
     font-size: 1rem;
+}
+
+/* Form Styling */
+form .form-label {
+    font-weight: bold;
 }
 
 /* Responsive Design */
@@ -89,8 +108,26 @@ p {
         text-align: center;
     }
 
-    .btn-primary {
+    .btn-primary, .btn-danger {
         width: 100%;
         margin-bottom: 10px;
     }
+
+    /* Adjust padding and text sizes for mobile */
+    body {
+        padding: 15px;
+    }
+}
+
+/* Add space between sections */
+.container {
+    margin-top: 30px;
+}
+
+.card-header, .card-body {
+    padding: 20px;
+}
+
+.card {
+    border-radius: 15px;
 }

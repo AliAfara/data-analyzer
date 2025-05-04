@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Plot{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 800px;">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Generated Plot</h2>
+        </div>
+        <div class="card-body">
+            <p class="text-muted text-center">Below is the generated plot based on your data.</p>
+            {% if graph_html %}
+                <div class="text-center">
+                    {{ graph_html|safe }}
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ download_url }}" class="btn btn-success">Download Plot</a>
+                </div>
+            {% else %}
+                <p class="text-danger text-center">No plot has been generated. Please check your data and try again.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

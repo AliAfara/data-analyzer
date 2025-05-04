@@ -13,23 +13,31 @@
             <form method="POST">
                 <div class="mb-3">
                     <label for="x_column" class="form-label">X Column:</label>
-                    <select name="x_column" id="x_column" class="form-select">
-                        {% for column in columns %}
-                        <option value="{{ column }}">{{ column }}</option>
-                        {% endfor %}
+                    <select name="x_column" id="x_column" class="form-select" required>
+                        {% if columns %}
+                            {% for column in columns %}
+                            <option value="{{ column }}">{{ column }}</option>
+                            {% endfor %}
+                        {% else %}
+                            <option value="" disabled>No columns available</option>
+                        {% endif %}
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="y_column" class="form-label">Y Column:</label>
-                    <select name="y_column" id="y_column" class="form-select">
-                        {% for column in columns %}
-                        <option value="{{ column }}">{{ column }}</option>
-                        {% endfor %}
+                    <select name="y_column" id="y_column" class="form-select" required>
+                        {% if columns %}
+                            {% for column in columns %}
+                            <option value="{{ column }}">{{ column }}</option>
+                            {% endfor %}
+                        {% else %}
+                            <option value="" disabled>No columns available</option>
+                        {% endif %}
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="chart_type" class="form-label">Chart Type:</label>
-                    <select name="chart_type" id="chart_type" class="form-select">
+                    <select name="chart_type" id="chart_type" class="form-select" required>
                         <option value="line">Line Chart</option>
                         <option value="bar">Bar Chart</option>
                         <option value="pie">Pie Chart</option>
@@ -40,4 +48,11 @@
         </div>
     </div>
 </div>
+
+{% if plot_generated %}
+    <div class="container mt-4 text-center">
+        <h4>Your Plot:</h4>
+        <img src="{{ plot_url }}" alt="Generated Plot" class="img-fluid">
+    </div>
+{% endif %}
 {% endblock %}

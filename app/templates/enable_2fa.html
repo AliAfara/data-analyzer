@@ -10,11 +10,23 @@
             Two-Factor Authentication (2FA) adds an extra layer of security to your account. 
             After enabling 2FA, you will need to enter a verification code in addition to your password.
         </p>
+        <p class="text-muted">To set up 2FA, please follow the instructions after enabling it.</p>
         <form method="POST" class="mt-4">
             <button type="submit" class="btn btn-primary btn-lg">
                 <i class="bi bi-shield-lock"></i> Enable 2FA
             </button>
         </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mt-4">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} text-center" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
     </div>
 </div>
 {% endblock %}

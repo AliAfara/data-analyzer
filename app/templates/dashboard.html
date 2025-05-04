@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4">Welcome to Your Dashboard!</h1>
+        <p class="lead text-muted">Manage your account and explore the features available to you.</p>
+
+        <!-- Buttons for navigation -->
+        <a href="/profile" class="btn btn-primary btn-lg mt-3">
+            <i class="bi bi-person-circle"></i> Go to Profile
+        </a>
+        <a href="/settings" class="btn btn-info btn-lg mt-3">
+            <i class="bi bi-gear"></i> Account Settings
+        </a>
+        <a href="/help" class="btn btn-secondary btn-lg mt-3">
+            <i class="bi bi-question-circle"></i> Help
+        </a>
+        
+        <!-- Logout button -->
+        <a href="/logout" class="btn btn-danger btn-lg mt-3">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+        <!-- Optional message or notifications -->
+        <div class="mt-4">
+            <p class="text-muted">You have 3 new notifications!</p>
+            <a href="/notifications" class="btn btn-warning btn-lg">
+                <i class="bi bi-bell"></i> View Notifications
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

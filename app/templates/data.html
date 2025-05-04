@@ -6,9 +6,14 @@
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Uploaded Data</h1>
     <p class="text-muted text-center">Below is the data you uploaded. You can sort, search, and filter the table as needed.</p>
-    <div class="table-responsive">
-        {{ tables|safe }}
-    </div>
+    
+    {% if tables %}
+        <div class="table-responsive">
+            {{ tables|safe }}
+        </div>
+    {% else %}
+        <p class="text-center text-warning">No data available to display.</p>
+    {% endif %}
 </div>
 {% endblock %}
 

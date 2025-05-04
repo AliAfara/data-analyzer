@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .btn-custom {
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -13,12 +24,17 @@
                 <h2>Profile</h2>
             </div>
             <div class="card-body text-center">
-                <img src="https://via.placeholder.com/150" alt="Avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+                <!-- يمكن تحديث الصورة الشخصية هنا -->
+                <img src="https://via.placeholder.com/150" alt="Avatar" class="rounded-circle mb-3 profile-image">
                 <h4 class="card-title">Welcome, {{ user.username }}</h4>
                 <p class="card-text"><strong>User ID:</strong> {{ user.id }}</p>
                 <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-                <a href="/dashboard" class="btn btn-primary d-block mx-auto mt-3" style="width: 200px;">Back to Dashboard</a>
-                <a href="/logout" class="btn btn-danger d-block mx-auto mt-3" style="width: 200px;">Logout</a>
+                
+                <!-- زر تعديل الملف الشخصي -->
+                <a href="/edit-profile" class="btn btn-warning d-block mx-auto btn-custom">Edit Profile</a>
+
+                <a href="/dashboard" class="btn btn-primary d-block mx-auto btn-custom">Back to Dashboard</a>
+                <a href="/logout" class="btn btn-danger d-block mx-auto btn-custom">Logout</a>
             </div>
         </div>
     </div>

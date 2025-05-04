@@ -8,10 +8,19 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Welcome, {{ user.username }}</h1>
-        <p class="text-center">User ID: {{ user.id }}</p>
-        <p class="text-center">Email: {{ user.email }}</p>
-        <a href="/dashboard" class="btn btn-primary d-block mx-auto mt-3" style="width: 200px;">Back to Dashboard</a>
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-header text-center bg-primary text-white">
+                <h2>Profile</h2>
+            </div>
+            <div class="card-body text-center">
+                <img src="https://via.placeholder.com/150" alt="Avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+                <h4 class="card-title">Welcome, {{ user.username }}</h4>
+                <p class="card-text"><strong>User ID:</strong> {{ user.id }}</p>
+                <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                <a href="/dashboard" class="btn btn-primary d-block mx-auto mt-3" style="width: 200px;">Back to Dashboard</a>
+                <a href="/logout" class="btn btn-danger d-block mx-auto mt-3" style="width: 200px;">Logout</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

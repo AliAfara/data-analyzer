@@ -3,8 +3,18 @@
 {% block title %}Enable 2FA{% endblock %}
 
 {% block content %}
-<h1>Enable Two-Factor Authentication</h1>
-<form method="POST">
-    <button type="submit" class="btn btn-primary">Enable 2FA</button>
-</form>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4">Enable Two-Factor Authentication</h1>
+        <p class="lead text-muted">
+            Two-Factor Authentication (2FA) adds an extra layer of security to your account. 
+            After enabling 2FA, you will need to enter a verification code in addition to your password.
+        </p>
+        <form method="POST" class="mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">
+                <i class="bi bi-shield-lock"></i> Enable 2FA
+            </button>
+        </form>
+    </div>
+</div>
 {% endblock %}

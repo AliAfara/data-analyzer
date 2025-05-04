@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الرسم البياني</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    {% extends "base.html" %}
+{% extends "base.html" %}
 
-    {% block title %}Plot{% endblock %}
+{% block title %}Plot{% endblock %}
 
-    {% block content %}
-    <h1>Generated Plot</h1>
-    <div>
-        {{ graph_html|safe }}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 800px;">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Generated Plot</h2>
+        </div>
+        <div class="card-body">
+            <p class="text-muted text-center">Below is the generated plot based on your data.</p>
+            <div class="text-center">
+                {{ graph_html|safe }}
+            </div>
+        </div>
     </div>
-    {% endblock %}
-</body>
-</html>
+</div>
+{% endblock %}

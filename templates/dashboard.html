@@ -1,38 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Dashboard{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    {% extends "base.html" %}
+{% extends "base.html" %}
 
-    {% block title %}Dashboard{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
-    {% block content %}
-    <h1>Welcome, {{ user.username }}</h1>
-    <p>This is your dashboard.</p>
-    {% endblock %}
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/upload">Upload File</a></li>
-            <li><a href="/plot">View Plot</a></li>
-            <li><a href="/form">Form</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
-    </nav>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul class="flashes">
-            {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-</body>
-</html>
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4">Welcome to the Dashboard!</h1>
+        <p class="lead text-muted">Manage your account and explore the features available to you.</p>
+        <a href="/profile" class="btn btn-primary btn-lg mt-3">
+            <i class="bi bi-person-circle"></i> Go to Profile
+        </a>
+        <a href="/logout" class="btn btn-danger btn-lg mt-3">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+    </div>
+</div>
+{% endblock %}

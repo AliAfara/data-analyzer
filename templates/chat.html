@@ -13,22 +13,32 @@
         {% block title %}Chat{% endblock %}
 
         {% block content %}
-        <h1>Chat with ChatGPT</h1>
-        <form method="POST">
-            <div class="mb-3">
-                <label for="message" class="form-label">Your Message:</label>
-                <textarea name="message" class="form-control" rows="3" required></textarea>
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header bg-primary text-white text-center">
+                <h2>Chat with ChatGPT</h2>
             </div>
-            <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-        {% if user_message and chat_response %}
-        <div class="mt-4">
-            <h4>Your Message:</h4>
-            <p>{{ user_message }}</p>
-            <h4>ChatGPT's Response:</h4>
-            <p>{{ chat_response }}</p>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message:</label>
+                        <textarea name="message" class="form-control" rows="3" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send</button>
+                </form>
+                {% if user_message and chat_response %}
+                <div class="mt-4">
+                    <div class="p-3 mb-3 bg-light border rounded">
+                        <h5 class="text-primary">Your Message:</h5>
+                        <p>{{ user_message }}</p>
+                    </div>
+                    <div class="p-3 bg-secondary text-white border rounded">
+                        <h5 class="text-warning">ChatGPT's Response:</h5>
+                        <p>{{ chat_response }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
         {% endblock %}
     </div>
 </body>

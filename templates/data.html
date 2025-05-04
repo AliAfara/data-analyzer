@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data View</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-</head>
-<body>
-    {% extends "base.html" %}
+{% extends "base.html" %}
 
-    {% block title %}Data{% endblock %}
+{% block title %}Data View{% endblock %}
 
-    {% block content %}
-    <h1>Uploaded Data</h1>
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Uploaded Data</h1>
+    <p class="text-muted text-center">Below is the data you uploaded. You can sort, search, and filter the table as needed.</p>
     <div class="table-responsive">
         {{ tables|safe }}
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
 
-    <script>
-        $(document).ready(function() {
-            $('table').DataTable();
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('table').DataTable({
+            paging: true,
+            searching: true,
+            ordering: true,
+            info: true
         });
-    </script>
-</body>
-</html>
+    });
+</script>
+{% endblock %}

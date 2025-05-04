@@ -1,43 +1,20 @@
-<!DOCTYPE html>
+rom flask import Flask, render_template
+app = Flask(__name__)
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    {% extends "base.html" %}
+# الصفحة الرئيسية
+@app.route('/')
+def home():
+    return render_template('index.html')  # ربط الصفحة الرئيسية بـ template
 
-    {% block title %}Home{% endblock %}
+# صفحة عن التطبيق
+@app.route('/about')
+def about():
+    return render_template('about.html')  # ربط صفحة "About" بـ template
 
-    {% block content %}
-    <div class="container text-center mt-5">
-        <h1>Welcome to My App</h1>
-        <p>This is the homepage. Use the navigation bar to explore the features.</p>
-        <a href="/about" class="btn btn-primary mt-3">Learn More</a>
-    </div>
-    {% endblock %}
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/upload">Upload File</a></li>
-            <li><a href="/plot">View Plot</a></li>
-            <li><a href="/form">Form</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
-    </nav>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul class="flashes">
-            {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-</body>
-</html>
+# صفحة رفع الملفات (إذا كنت بحاجة إليها)
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')  # ربط صفحة "Upload" بـ template
+
+if __name__ == '__main__':
+    app.run(debug=True)  # تشغيل التطبيق في وضع التصحيح
